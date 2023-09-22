@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Response;
+
 test('a Response object can be created', function () {
     // ACT
     $response = new Response('{"foo":"bar"}', 200);
