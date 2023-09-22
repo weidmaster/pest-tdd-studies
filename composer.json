@@ -1,6 +1,7 @@
 {
     "require-dev": {
-        "pestphp/pest": "^2.18"
+        "pestphp/pest": "^2.18",
+        "symfony/var-dumper": "^6.3"
     },
     "autoload": {
         "psr-4": {

@@ -4,12 +4,28 @@ namespace App\Http;
 
 class Request
 {
+    public function __construct(
+        private array $queryParams
+    ) {
+    }
+
     public static function create(
         string $method,
         string $uri,
         array $server,
         string $content
     ): self {
-        return new self();
+        $uriParts = parse_url($uri);
+
+        parse_str($uriParts['query'] ?? '', $queryParams);
+
+        return new self(
+            $queryParams
+        );
+    }
+
+    public function getQueryParams(): array
+    {
+        return $this->queryParams;
     }
 }
