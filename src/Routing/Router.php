@@ -42,13 +42,15 @@ class Router
             case Dispatcher::FOUND:
                 $handler = $routeInfo[1];
 
+                $vars = $routeInfo[2];
+
                 if (is_array($handler)) {
                     $handler = [new $handler[0], $handler[1]];
                 }
 
-                $response = $handler();
-                //$vars = $routeInfo[2];
                 // ... call $handler with $vars
+                $response = $handler(...$vars);
+
                 break;
         }
 
