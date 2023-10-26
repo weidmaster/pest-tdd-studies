@@ -14,6 +14,9 @@ $container->delegate(new ReflectionContainer(true));
 $routes = include __DIR__ . '/routes.php';
 
 # services
+$container->add(RouteHandlerResolver::class)
+    ->addArguments([$container]);
+
 $container->add(Router::class)
     ->addArguments([RouteHandlerResolver::class]);
 
