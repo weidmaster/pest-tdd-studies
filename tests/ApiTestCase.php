@@ -44,8 +44,6 @@ abstract class ApiTestCase extends BaseTestCase
         // create / resolve the kernel
         $kernel = $this->container->get(Kernel::class);
 
-        dd($kernel);
-
         // obtain a $response object
         $response = $kernel->handle($request);
 
